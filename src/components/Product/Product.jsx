@@ -1,8 +1,9 @@
 import React from "react";
+import "./product.css";
 
 const Product = (props) => {
     return (
-        <li>{props.productData.productName}</li>
+        <li className="product">{props.productData.productName}</li>
     )
 }
 
