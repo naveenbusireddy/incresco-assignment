@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Filters from "./components/Filters/Filters";
+
+import ProductsPage from "./components/ProductsPage/ProductsPage";
 
 function App() {
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="grid-container">
+
+      <div className="search-container">sort</div>
+
+        <div className="sort-container">
+          <input type="search" placeholder="Item Search"></input>
+        </div>
+
+        
+
+        <div className="filter-container">
+          <div>
+            
+            <Filters />
+          </div>
+        </div>
+
+        <div className="product-list-container">
+          <p>Product List</p>
+            
+          <ProductsPage />
+        </div>
+      </div>
+    </>
   );
 }
 

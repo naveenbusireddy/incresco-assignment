@@ -2,15 +2,44 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "filter-container filter-container . .  sort-container search-container"
+    "filter-container filter-container product-list-container product-list-container product-list-container product-list-container"
+    "filter-container filter-container product-list-container product-list-container product-list-container product-list-container"
+    "filter-container filter-container product-list-container product-list-container product-list-container product-list-container"
+    "filter-container filter-container product-list-container product-list-container product-list-container product-list-container";
+  gap: 10px;
+  grid-auto-flow: row;
+  background-color: #eaf1f7;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid-container>div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  padding: 20px 10px;
+  font-size: 30px;
+}
+
+.filter-container {
+  grid-area: filter-container;
+
+}
+
+.sort-container {
+  grid-area: sort-container;
+  
+}
+
+.search-container {
+  grid-area: search-container;
+  
+}
+
+.product-list-container {
+  grid-area: product-list-container;
 }
 
 .App-header {
@@ -32,6 +61,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
