@@ -1,20 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "../Product/Product";
 
 
 const ProductsList = (props) => {
-  
+   
+
     return (
         <>
-        <div>
-            { props.productsList.map((product) => (
+            { props.productsList && props.productsList.map((product) => (
                 <Product 
                 key={product.landingPageUrl}
                 productData={product}/>
                 ))
-            }
-        </div>
-        
+            }        
         </>
     )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Gender = () => {
+const Search = () => {
 
     return (
         <>
@@ -9,4 +9,4 @@ const Gender = () => {
     )
 }
 
-export default Gender;
+export default Search;
