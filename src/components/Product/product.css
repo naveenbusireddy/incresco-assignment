@@ -1,3 +1,26 @@
 img{
-    width: 200px;
+    width: 200px;  
+}
+.li-product {
+    text-align: left;
+    font-weight: bold;
+}
+.li-productName {
+    text-align: left;
+    font-weight: lighter;
+}
+.li-price {
+    text-align: left;
+    font-weight: bold;
+}
+
+.li-mrp {
+    text-decoration: line-through;
+}
+
+.rating-display {
+    padding: 8px 8px 8px 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #535766;
 }
