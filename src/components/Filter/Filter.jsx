@@ -47,7 +47,7 @@ const Filter = (props) => {
   }
 
   return (
-    <>
+    <div className="filterContainer">
       <strong>{props.type}</strong>
       <li>
         <input
@@ -59,7 +59,7 @@ const Filter = (props) => {
         />
         <label htmlFor={"selectAll" + props.type}>Select All/Clear All</label>
       </li>
-
+    <div className="optionsContainer">
       {filterOptions && filterOptions.map((option, index) => (
         <li key={option.id}>
           <input
@@ -74,7 +74,8 @@ const Filter = (props) => {
         </li>
       ))
       }
-    </>
+      </div>
+    </div>
   )
 }
 

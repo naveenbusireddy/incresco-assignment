@@ -3,6 +3,7 @@ import axios from "axios";
 import ProductList from "../ProductList/ProductList";
 import Filters from "../Filters/Filters";
 import Sort from "../Sort/Sort";
+import "./productsPage.css";
 
 const ProductsPage = () => {
 
@@ -101,13 +102,19 @@ const ProductsPage = () => {
 
 
     return (
-        <>
-            <Sort onDropSelect={onDropSelect} />
-            <input type="text" placeholder="Search Items" value={searchOption} onChange={onChangeHandler} />
-
-            {products && <ProductList productsList={finalProductList} />}
+        <div className="grid-container">
+            <div className="searchSort">
+                <Sort onDropSelect={onDropSelect} />
+                <input type="text" placeholder="Search Items" value={searchOption} onChange={onChangeHandler} />
+            </div>
+            <div className="filters">
             {filters && <Filters filters={filters} onFilterSelect={onFilterSelect} />}
-        </>
+            </div>
+            <div className="products">
+                {products && <ProductList productsList={finalProductList} />}
+            </div>   
+      </div>
+        
     )
 }
 
