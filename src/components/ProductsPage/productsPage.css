@@ -6,8 +6,8 @@
       'filter products products products products products products products'
       'filter products products products products products products products';
   
-    gap: 15px 50px;
-    background-color: #2196F3;
+    gap: 15px 15px;
+    background-color: #f3f4f5;
     padding: 10px;
   }
   
@@ -18,22 +18,21 @@
   .searchSort {
     grid-area: sort;
     padding: 15px;
-    border-style: solid;
+    border-style: none;
   }
   .filters {
     grid-area: filter;
-    border-style: solid;
+    border-style: none;
   }
   .products {
     grid-area: products;
-    border-style: solid;
+    border-style: none;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
     column-gap: 10px;
     row-gap: 10px;
     padding-top: 30px;
+    
 }
-  .product {
-    width: 200px;
-}
+  
