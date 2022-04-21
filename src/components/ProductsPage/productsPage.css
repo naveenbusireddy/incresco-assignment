@@ -1,0 +1,38 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'filter sort sort sort sort sort sort sort'
+      'filter  products products products products products products products'
+      'filter products products products products products products products'
+      'filter products products products products products products products';
+  
+    gap: 15px 15px;
+    background-color: #f3f4f5;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .searchSort {
+    grid-area: sort;
+    padding: 15px;
+    border-style: none;
+  }
+  .filters {
+    grid-area: filter;
+    border-style: none;
+  }
+  .products {
+    grid-area: products;
+    border-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 10px;
+    row-gap: 10px;
+    padding-top: 30px;
+    
+}
+  
