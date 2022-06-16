@@ -13,7 +13,7 @@ const Filter = (props) => {
       updatedOption.isChecked = isChecked;
       newList[index] = updatedOption;
       setFilterOptions(newList);
-      let finalSelectedList = JSON.parse(JSON.stringify(newList)).filter((option) => option.isChecked).map((option) => {
+      let finalSelectedList = newList.filter((option) => option.isChecked).map((option) => {
         switch (option.id.replace(" ", "")) {
           case "boys": option.id = "Boys"; break;
           case "boysgirls": option.id = "Unisex"; break;

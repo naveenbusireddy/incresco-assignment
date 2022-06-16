@@ -9,21 +9,22 @@ const ProductsPage = () => {
 
     const [products, setProducts] = useState();
     const [finalProductList, setFinalProductList] = useState();
-    const [filteredProductList,setFilteredProductList]=useState();
+    const [filteredProductList, setFilteredProductList] = useState();
     const [filters, setFilters] = useState();
     const [selectedFilters, setSelectedFilters] = useState({ Brand: "selectAll", Categories: "selectAll", Gender: "selectAll" });
     const [sortOption, setSortOption] = useState("Newest");
     const [searchOption, setSearchOption] = useState('');
 
     const getData = () => {
-        axios.get(`https://demo7303877.mockable.io/`)
+        axios.get(`https://demo7303877.mockable.io/`) //calling API and getting data.
             .then((responseData) => {
-                setProducts(responseData.data.products);
-                setFilters(responseData.data.filters.primaryFilters);
+                setProducts(responseData.data.products); //initial assigning API data (products data) to state variable.
+                setFilters(responseData.data.filters.primaryFilters); //initial assigning API Data (primary filters data) to state variable.
                 getSortedProductList(responseData.data.products);
+
             });
     };
-
+    // Below code will execute after page loading. This component Didmount. 
     useEffect(() => {
         getData();
     }, []);
@@ -32,6 +33,8 @@ const ProductsPage = () => {
         let brands = selectedFilters.Brand === "selectAll" ? "" : selectedFilters.Brand.split(',');
         let gender = selectedFilters.Gender === "selectAll" ? "" : selectedFilters.Gender.split(',');
         let categories = selectedFilters.Categories === "selectAll" ? "" : selectedFilters.Categories.split(',');
+
+        console.log(gender);
 
         let filterProductList = products.filter((product) => {
             let isBrandMatch = !brands || brands.indexOf(product.brand) > -1;
@@ -88,7 +91,7 @@ const ProductsPage = () => {
     }
 
     const getSearchedProductList = () => {
-       let finalProductListCopy = JSON.parse(JSON.stringify(filteredProductList));
+        let finalProductListCopy = JSON.parse(JSON.stringify(filteredProductList));
         searchOption.length === 0 ? setFinalProductList(finalProductListCopy) : setFinalProductList(finalProductListCopy.filter(SearchProduct => SearchProduct.productName.trim().toLowerCase().includes(searchOption.trim().toLowerCase())))
     }
 
@@ -97,24 +100,22 @@ const ProductsPage = () => {
             getSearchedProductList();
     }, [searchOption])
 
-    // searchOption.length === 0 ? finalProductList : finalProductList.filter(SearchProduct => SearchProduct.brand.toLowerCase().includes(searchOption.toLowerCase()))
-    // setFinalProductList(finalProductListCopy);
-
 
     return (
         <div className="grid-container">
             <div className="searchSort">
                 <Sort onDropSelect={onDropSelect} />
+
                 <input type="text" placeholder="Search Items" value={searchOption} onChange={onChangeHandler} />
             </div>
             <div className="filters">
-            {filters && <Filters filters={filters} onFilterSelect={onFilterSelect} />}
+                {filters && <Filters filters={filters} onFilterSelect={onFilterSelect} />} 
             </div>
             <div className="products">
-                {products && <ProductList productsList={finalProductList} />}
-            </div>   
-      </div>
-        
+                {products && <ProductList productsList={finalProductList} />} //sending data to child
+            </div>
+        </div>
+
     )
 }
 
